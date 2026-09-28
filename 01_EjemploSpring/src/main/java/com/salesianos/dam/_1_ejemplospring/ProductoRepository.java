@@ -1,32 +1,35 @@
 package com.salesianos.dam._1_ejemplospring;
 
-
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class ProductoRepository {
+public interface ProductoRepository extends JpaRepository<Product,Long> {
 
-    private List<Product> products;
+   /* private final List<Product> products = new ArrayList<>();
 
-    public ProductoRepository() {
-        this.products = new ArrayList<>();
-    }
-
-    @PostMapping
-    public Product addProduct(Product product){
-
+    public Product addProduct(Product product) {
         products.add(product);
         return product;
-
-
     }
 
-    public  List<Product> getProducts(){
+    public List<Product> getProducts() {
         return products;
     }
+
+    public Optional<Product> getProductByName(String name) {
+        return products.stream()
+                .filter(p -> p.nombre().equalsIgnoreCase(name))
+                .findFirst();
+    }
+
+    public boolean deleteProduct(String name) {
+        return products.removeIf(p -> p.nombre().equalsIgnoreCase(name));
+    }
+    */
+
 }
