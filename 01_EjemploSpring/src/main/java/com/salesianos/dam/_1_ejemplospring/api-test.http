@@ -1,9 +1,14 @@
-### 1. Saludo por defecto
-GET http://localhost:9000/api
-Accept: application/json
+### POST Crear producto
+POST http://localhost:8080/api/product
+Content-Type: application/json
 
-###
+{
+  "nombre": "Pan y picos",
+  "precio": 1
+}
 
-### 2. Saludo personalizado con parámetro
-GET http://localhost:9000/api?name=Mario
-Accept: application/json
+### GET obtener todos los productos
+GET http://localhost:8080/api/product
+
+### GET obtener producto id 1
+GET http://localhost:8080/api/product/1
